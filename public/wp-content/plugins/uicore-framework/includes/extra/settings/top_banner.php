@@ -1,0 +1,411 @@
+<?php
+namespace UiCore\Settings;
+
+use Uicore\Data;
+
+defined('ABSPATH') || exit();
+
+/**
+ * General settings.
+ *
+ * @return array
+ */
+
+$category = _x('Top Banner', 'Admin - Theme Options', 'uicore-framework');
+$category_slug = 'top-banner';
+
+return[
+    self::add_toggle([
+        'id' => 38,
+        'adv' => false,
+        'index' => 'header_top',
+        'name' => _x('Enable Top Banner', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Enable a top bar above the header. Hides on scroll automatically.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'default' => 'true',
+        'tags' => _x('top banner', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => NULL,
+        'visible' => true,
+    ]),
+    self::add_toggle([
+        'id' => 205,
+        'adv' => false,
+        'index' => 'header_top_sticky',
+        'name' => _x('Sticky on Top', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'default' => 'false',
+        'module' => 'frontend',
+        'desc' => _x('Top Banner stays fixed on top on page scroll.', 'Admin - Theme Options', 'uicore-framework'),
+        'tags' => _x('top banner sticky fixed', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => NULL,
+        'visible' => true,
+    ]),
+    self::add_toggle([
+        'id' => 206,
+        'adv' => false,
+        'index' => 'header_top_dismissable',
+        'name' => _x('Dismissable', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'default' => 'false',
+        'desc' => _x('Allow users to dismiss the banner using a close button.', 'Admin - Theme Options', 'uicore-framework'),
+        'tags' => _x('top banner dismissable', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => NULL,
+        'visible' => true,
+    ]),
+    self::add_output([
+        'id' => 207,
+        'adv' => true,
+        'index' => 'header_top_token',
+        'name' => _x('Token', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'desc' => _x('Generate a new token to show the top bar again after dismissing it.', 'Admin - Theme Options', 'uicore-framework'),
+        'tags' => _x('top banner dismissable token', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => NULL,
+        'visible' => true,
+        'default' => 'ak2al8gog',
+        'reset' => true,
+
+    ]),
+    self::add_background([
+        'id' => 39,
+        'index' => 'header_top_bg',
+        'adv' => true,
+        'name' => _x('Background', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the background for top banner.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner background', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'default' => [
+           'type' => 'Primary',
+            'solid' => 'Primary',
+            'gradient' => [
+            'angle' => '180',
+            'color1' => '#070707',
+            'color2' => '#202020',
+            ],
+            'image' => [
+                'url' => '',
+                'attachment' => 'scroll',
+                'position' => [
+                    'd' => 'center center',
+                    't' => 'center center',
+                    'm' => 'center center',
+                ],
+                'repeat' => 'repeat',
+                'size' => [
+                    'd' => 'cover',
+                    't' => 'cover',
+                    'm' => 'contain',
+                ],
+            ],
+        ],
+        'blur' => true, // TODO: not sure if requested in this case
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+    ]),
+    self::add_color([
+        'id' => 40,
+        'index' => 'header_top_color',
+        'adv' => true,
+        'name' => _x('Text Color', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the text color for top banner.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner text color', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'default' => '#FFFFFF',
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+    ]),
+    self::add_input([
+        'id' => 41,
+        'index' => 'header_top_fonts',
+        'adv' => true,
+        'name' => _x('Text Size', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the text size for top banner.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner text size', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+        'responsive' => false,
+        'accept' => 'number',
+        'suffix' => 'px',
+        'min' => 1,
+        'max' => 99,
+        'size' => "m",
+        'default' => 12,
+    ]),
+    self::add_color2([
+        'id' => 42,
+        'index' => 'header_top_linkcolor',
+        'adv' => true,
+        'name' => _x('Link Colors', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the link colors for top banner.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner link color', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+        'default' => [
+            'm' => '#FFFFFF',
+			'h' => 'rgba(255, 255, 255, 0.75)',
+        ]
+    ]),
+    self::add_input([
+        'id' => 43,
+        'index' => 'header_top_padding',
+        'adv' => true,
+        'name' => _x('Top Bar Padding', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the top/bottom spacing for top banner.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner padding', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+        'responsive' => false,
+        'accept' => 'number',
+        'min' => 0,
+        'max' => 99,
+        'default' => 12,
+        'size' => 'm',
+        'suffix' => "px",
+    ]),
+    self::add_select([
+        'id' => 44,
+        'index' => 'header_toplayout',
+        'adv' => false,
+        'name' => _x('Layout', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the top banner column layout.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner layout', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+        'default' => 'two columns',
+        'size' => 'm',
+        'options' => [
+            [
+                'name' => _x('One Column', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'one column',
+            ],
+            [
+                'name' => _x('Two Columns', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'two columns',
+            ],
+        ],
+    ]),
+    self::add_select([
+        'id' => 45,
+        'index' => 'header_topone',
+        'adv' => false,
+        'name' => _x('First Column Content Type', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Choose the content type for the first column.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner first column content', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+        'default' => 'custom',
+        'options' => [
+            [
+                'name' => _x('Social Icons', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'social icons',
+            ],
+            [
+                'name' => _x('Menu', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'menu',
+            ],
+            [
+                'name' => _x('Custom', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'custom',
+            ],
+        ],
+        'size' => 'm',
+    ]),
+    self::add_select([
+        'id' => 46,
+        'index' => 'header_topone_position',
+        'adv' => true,
+        'name' => _x('First Column Alignment', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the alignment for the first column.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top banner first column alignment', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'visible' => array(
+            'header_top' => 'true',
+        ),
+        'default' => 'left',
+        'options' => [
+            [
+                'name' => _x('Left', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'left',
+            ],
+            [
+                'name' => _x('Center', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'center',
+            ],
+            [
+                'name' => _x('Right', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'right',
+            ],
+        ],
+        'size' => 'm',
+    ]),
+    self::add_editor([
+        'id' => 47,
+        'index' => 'header_topone_content',
+        'adv' => false,
+        'name' => _x('First Column Custom Content', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'desc' => '',
+        'tags' => _x('top banner first column content', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 38,
+        'default' => '<p>Learn as if you will live forever, live like you will die tomorrow.</p>',
+        'visible' => array (
+            'header_top' => 'true',
+        ),
+    ]),
+    self::add_select([
+        'id' => 48,
+        'adv' => false,
+        'index' => 'header_toptwo',
+        'name' => _x('Second Column Content Type', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Choose the content type for the second column.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top bar second column content', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 44,
+        'visible' => array(
+            'header_toplayout' => 'two columns',
+        ),
+        'default' => 'custom',
+        'options' => [
+            [
+                'name' => _x('Social Icons', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'social icons',
+            ],
+            [
+                'name' => _x('Menu', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'menu',
+            ],
+            [
+                'name' => _x('Custom', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'custom',
+            ],
+        ],
+        'size' => 'm',
+    ]),
+    self::add_select([
+        'id' => 49,
+        'index' => 'header_toptwo_position',
+        'adv' => true,
+        'name' => _x('Second Column Alignment', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => _x('Set the alignment for the second column.', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top bar second column alignment', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 44,
+        'visible' => array(
+            'header_toplayout' => 'two columns',
+        ),
+        'default' => 'left',
+        'options' => [
+            [
+                'name' => _x('Left', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'left',
+            ],
+            [
+                'name' => _x('Center', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'center',
+            ],
+            [
+                'name' => _x('Right', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'right',
+            ],
+        ],
+        'size' => 'm',
+    ]),
+    self::add_editor([
+        'id' => 48,
+        'index' => 'header_toptwo_content',
+        'adv' => false,
+        'name' => _x('Second Column Content Type', 'Admin - Theme Options', 'uicore-framework'),
+        'desc' => '',
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'tags' => _x('top bar second column content', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => 44,
+        'default' => '[uicore-icon icon=phone]   +1 555 87 89 56[/uicore-icon][uicore-icon icon=map-pin left=35px]   80 Harrison Lane, FL 32547[/uicore-icon]',
+        'visible' => array(
+            'header_toplayout' => 'two columns',
+        ),
+    ]),
+    self::add_select([
+        'id' => 212,
+        'index' => 'animations_topbanner',
+        'adv' => true,
+        'name' => _x('Entrance Animation Type', 'Admin - Theme Options', 'uicore-framework'),
+        'category' => $category,
+        'category_slug' => $category_slug,
+        'module' => 'frontend',
+        'desc' => _x('Set the animation style.', 'Admin - Theme Options', 'uicore-framework'),
+        'tags' => _x('animation type', 'Admin - Theme Options Search', 'uicore-framework'),
+        'dependecies' => NULL,
+        'visible' => true,
+        'size' => 'm',
+        'default' => 'none',
+        'options' => [
+            [
+                'name' => _x('None', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'none',
+            ],
+            [
+                'name' => _x('Fade', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'fade',
+            ],
+            [
+                'name' => _x('Fade Down', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'fade down',
+            ],
+            [
+                'name' => _x('Fade Up', 'Admin - Theme Options', 'uicore-framework'),
+                'value' => 'fade up',
+            ],
+        ]
+    ]),
+];

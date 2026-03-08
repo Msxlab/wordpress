@@ -1,0 +1,36 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local Git metadata backups
+.git-backups/
+
+# Local diagnostics and machine-specific files
+public/local-xdebuginfo.php
+public/.maintenance
+
+# Runtime-generated WordPress content
+public/wp-content/debug.log
+public/wp-content/cache/
+public/wp-content/upgrade/
+public/wp-content/ai1wm-backups/
+public/wp-content/backups/
+public/wp-content/backup-*/
+public/wp-content/updraft/
+public/wp-content/wflogs/
+public/wp-content/advanced-cache.php
+public/wp-content/object-cache.php
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,284 @@
+/**
+ * Element Pack Role Filters CSS
+ * 
+ * Styles for role-based filtering interface and notices
+ */
+
+/* Role Restriction Notice in Elementor Editor */
+.ep-role-restriction-notice {
+    margin: 10px 0;
+    padding: 12px 16px;
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+    color: #0056b3;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.ep-role-restriction-notice p {
+    margin: 0;
+}
+
+.ep-role-restriction-notice strong {
+    color: #003d82;
+}
+
+/* Permission Manager Interface Styles */
+.ep-permission-manager-header {
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e9ecef;
+}
+
+.ep-permission-manager-header h2 {
+	margin: 0 0 10px 0;
+	color: #1d2327;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.ep-permission-manager-description {
+	margin: 0;
+	color: #646970;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.ep-permission-manager-controls {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.ep-control-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 14px;
+}
+
+.ep-role-selector,
+.ep-category-filter {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.ep-quick-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.ep-quick-actions .bdt-button {
+    flex: 1;
+}
+
+.ep-widgets-container {
+    min-height: 400px;
+}
+
+.ep-widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.ep-widget-item {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.ep-widget-item:hover {
+    border-color: #007cba;
+    box-shadow: 0 2px 8px rgba(0, 124, 186, 0.1);
+}
+
+.ep-widget-item.selected {
+    border-color: #007cba;
+    background: #f0f8ff;
+}
+
+.ep-widget-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.ep-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.ep-widget-title {
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 14px;
+    margin: 0;
+}
+
+.ep-widget-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ep-widget-badge.free {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.ep-widget-badge.pro {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.ep-widget-description {
+    color: #646970;
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.ep-widget-category {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #8c8f94;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ep-permission-manager-footer {
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #e9ecef;
+}
+
+.ep-save-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.ep-status-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.ep-status-text {
+    color: #646970;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.ep-loading {
+    text-align: center;
+    padding: 40px;
+    color: #646970;
+}
+
+.ep-loading .dashicons {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 10px;
+}
+
+.ep-no-role-selected {
+    text-align: center;
+    padding: 60px 20px;
+    color: #646970;
+}
+
+.ep-no-role-selected .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    color: #dcdcde;
+}
+
+.ep-success-notice {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.ep-error-notice {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ep-widgets-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ep-permission-manager-controls .bdt-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ep-quick-actions {
+        flex-direction: column;
+    }
+    
+    .ep-save-actions {
+        flex-direction: column;
+    }
+    
+    .ep-status-info {
+        justify-content: flex-start;
+        margin-top: 15px;
+    }
+}
+
+/* Elementor Editor Specific Styles */
+.elementor-panel .ep-role-restriction-notice {
+    margin: 10px 15px;
+    border-radius: 3px;
+}
+
+.elementor-panel .ep-role-restriction-notice .notice-dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #0056b3;
+}
+
+.elementor-panel .ep-role-restriction-notice .notice-dismiss:hover {
+    color: #003d82;
+}
+
+/* Hidden Widget Styles */
+.elementor-element-wrapper[data-widget-type*="bdt-"].ep-restricted {
+    display: none !important;
+}
+
+/* Search Results Filtering */
+.elementor-panel-search-results .ep-restricted {
+    display: none !important;
+} 

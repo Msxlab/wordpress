@@ -1,0 +1,257 @@
+/**
+ * Element Pack Custom Fonts - Admin Styles
+ */
+
+.ep-custom-fonts-wrapper {
+	padding: 20px;
+}
+
+.ep-custom-fonts-wrapper .description {
+	margin-bottom: 20px;
+	color: #666;
+	font-size: 15px;
+    font-weight: 300;
+}
+
+/* Font Variations */
+/* .ep-font-variations {
+	margin-bottom: 20px;
+} */
+
+/* .ep-font-variation {
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 20px;
+	margin-bottom: 20px;
+	position: relative;
+} */
+
+.ep-font-variation:last-child {
+	margin-bottom: 0;
+}
+
+.ep-font-variation-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+.ep-font-variation-header h4 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #23282d;
+}
+
+.ep-remove-variation {
+	color: #b32d2e;
+}
+
+.ep-remove-variation:hover {
+	color: #dc3232;
+}
+
+.ep-remove-variation:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Form Table */
+.ep-font-variation .form-table {
+	margin: 0;
+	background: transparent;
+}
+
+.ep-font-variation .form-table th {
+	width: 200px;
+	padding: 15px 10px 15px 0;
+	font-weight: 600;
+}
+
+.ep-font-variation .form-table td {
+	padding: 6px 10px;
+}
+
+.ep-font-file-row td {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.ep-font-file-row td>* {
+    background: #ffffff;
+    border-color: #eee;
+    padding: 6px 12px;
+	border-radius: 3px;
+}
+.ep-font-file-row button.button {
+    padding: 6px 15px;
+	color: #4a4d4e;
+    border-color: #eee;
+    background: #ffffff;
+}
+.ep-font-file-row button.button:hover, 
+.ep-font-file-row button.button:focus {
+	border-color: #eee;
+	color: #fff;
+	background: #3582c4;
+}
+.ep-font-variation select.regular-text {
+    padding: 6px 24px 6px 8px;
+    border-color: #eee;
+}
+
+.ep-font-file-url {
+	flex: 1;
+	min-width: 300px;
+}
+
+.ep-upload-font-file {
+	flex-shrink: 0;
+}
+
+.ep-remove-font-file {
+	flex-shrink: 0;
+	color: #b32d2e;
+}
+
+.ep-remove-font-file:hover {
+	color: #dc3232;
+	border-color: #dc3232;
+}
+
+/* Add Variation Button */
+.ep-add-variation {
+	margin-top: 10px;
+}
+
+/* Admin List Table */
+.post-type-ep_custom_font .wp-list-table .column-preview {
+	width: auto;
+	padding-left: 10px !important;
+	float: none;
+}
+
+.post-type-ep_custom_font .wp-list-table .column-variations {
+	width: 150px;
+}
+
+.post-type-ep_custom_font .wp-list-table .column-variations strong {
+	color: #2271b1;
+}
+
+/* Font Preview */
+.ep-font-preview {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #03A9F4;
+    padding: 0;
+    overflow: hidden;
+    display: inline-block;
+    background-color: transparent;
+    background-image: linear-gradient(313deg, #08AEEC 0%, #20E2AD 100%);
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ep-font-no-preview {
+	color: #999;
+	font-style: italic;
+	font-size: 13px;
+}
+
+/* Notice Styles */
+.ep-custom-fonts-notice {
+	margin: 20px 0;
+	padding: 10px 15px;
+	background: #fff;
+	border-left: 4px solid #2271b1;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.ep-custom-fonts-notice.notice-success {
+	border-left-color: #00a32a;
+}
+
+.ep-custom-fonts-notice.notice-error {
+	border-left-color: #d63638;
+}
+
+.ep-custom-fonts-notice.notice-warning {
+	border-left-color: #dba617;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+	.ep-font-variation-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.ep-font-variation .form-table th,
+	.ep-font-variation .form-table td {
+		display: block;
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	.ep-font-file-row td {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.ep-font-file-url {
+		min-width: auto;
+		width: 100%;
+	}
+
+	/* Adjust preview column width on mobile */
+	.ep-font-preview {
+		font-size: 14px;
+		max-width: 200px;
+	}
+}
+
+/* Empty State */
+.ep-custom-fonts-empty {
+	text-align: center;
+	padding: 60px 20px;
+	color: #666;
+}
+
+.ep-custom-fonts-empty h3 {
+	font-size: 18px;
+	margin-bottom: 10px;
+	color: #23282d;
+}
+
+.ep-custom-fonts-empty p {
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+/* Loading State */
+.ep-font-loading {
+	opacity: 0.6;
+	pointer-events: none;
+	position: relative;
+}
+
+.ep-font-loading::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

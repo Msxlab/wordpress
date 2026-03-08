@@ -1,0 +1,47 @@
+<wpml-config>
+    <admin-texts>
+        <key name="uicore_theme_options">
+            <key name="header_ctatext"/>
+            <key name="header_ctalink"/>
+            <key name="header_topone_content"/>
+            <key name="header_toptwo_content"/>
+            <key name="copyrights_content"/>
+            <key name="social_*"/>
+            <key name="header_sd_text"/>
+            <key name="logo"/>
+            <key name="logo*"/>
+            <key name="mobile_back"/>
+        </key>
+    </admin-texts>
+
+	<custom-types>
+		<custom-type translate="1" display-as-translated="1">uicore-tb</custom-type>
+		<custom-type translate="1">portfolio</custom-type>
+	</custom-types>
+
+    <elementor-widgets>
+        <!-- Sale Badge -->
+        <widget name="uicore-woo-sale-badge">
+            <conditions>
+                <condition key="widgetType">uicore-woo-sale-badge</condition>
+            </conditions>
+            <fields>
+                <field type="Badge: text" editor_type="LINE">badge_text</field>
+            </fields>
+        </widget>
+        <!-- Product Meta -->
+        <widget name="uicore-woo-product-meta">
+            <conditions>
+                <condition key="widgetType">uicore-woo-product-meta</condition>
+            </conditions>
+            <fields>
+                <field type="Category: text" editor_type="LINE">category_caption_single</field>
+                <field type="Categories: text" editor_type="LINE">category_caption_plural</field>
+                <field type="Tag: text" editor_type="LINE">tag_caption_single</field>
+                <field type="Tags: text" editor_type="LINE">tag_caption_plural</field>
+                <field type="SKU: text" editor_type="LINE">sku_caption</field>
+                <field type="No SKU: text" editor_type="LINE">sku_missing_caption</field>
+            </fields>
+        </widget>
+    </elementor-widgets>
+</wpml-config>
